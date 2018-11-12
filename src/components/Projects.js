@@ -6,7 +6,7 @@ class Projects extends Component {
   deleteProject(id){
     this.props.onDelete(id);
   }
-  
+
   render() {
     let projectItems;
     if(this.props.projects){
