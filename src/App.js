@@ -1,25 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Projects from './components/Projects.js'
+import AddProject from './components/AddProject.js'
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      projects: [
+        
+      ]
+    }
+  }
+
+  componentWillMount(){
+    this.setState({projects: [
+      {
+        title: "Business Website",
+        category: "Web Design"
+      },
+      {
+        title: "Social Application",
+        category: "Mobile Development"
+      },
+      {
+        title: "ECommerce Shopping Cart",
+        category: "Web Development"
+      }
+    ]})
+  }
+
+  handleAddProject(project){
+    console.log(project)
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>My Project Manager</h1>
+        <AddProject addProject={this.handleAddProject.bind(this)}/>
+        <Projects projects={this.state.projects} />
       </div>
     );
   }

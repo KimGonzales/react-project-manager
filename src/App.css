@@ -30,3 +30,7 @@
     transform: rotate(360deg);
   }
 }
+
+.Projects, .AddProject {
+  text-align: left;
+}
